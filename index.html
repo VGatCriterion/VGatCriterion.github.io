@@ -2,221 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Quick links" />
-  <title>Vadim — Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vadim's links</title>
 
   <style>
     :root{
-      --bg1:#0b1220;
-      --bg2:#111b31;
-      --card: rgba(255,255,255,.08);
-      --text: #eaf0ff;
-      --muted: rgba(234,240,255,.75);
-      --btn: rgba(255,255,255,.10);
-      --btnHover: rgba(255,255,255,.16);
-      --ring: rgba(120, 160, 255, .45);
+      --bg: #0b0f1a;
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --text: #e9eefc;
+      --btn: rgba(255,255,255,.08);
+      --btnHover: rgba(255,255,255,.12);
+      --focus: rgba(120,160,255,.55);
+      --shadow: 0 14px 40px rgba(0,0,0,.45);
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --max: 560px;
+      --max: 520px;
     }
 
-    *{ box-sizing:border-box; }
+    *{ box-sizing: border-box; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      min-height:100vh;
+      display:grid;
+      place-items:center;
+      background: radial-gradient(900px 650px at 30% 10%, rgba(95,120,255,.18), transparent 60%),
+                  radial-gradient(700px 500px at 70% 30%, rgba(170,90,255,.14), transparent 55%),
+                  var(--bg);
       color: var(--text);
-      min-height: 100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: radial-gradient(1200px 900px at 20% 10%, #2a5cff33, transparent 55%),
-                  radial-gradient(1000px 800px at 80% 30%, #7c3aed33, transparent 60%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
-      padding: 28px 16px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      padding: 24px 14px;
     }
 
     .wrap{
-      width:100%;
+      width: 100%;
       max-width: var(--max);
+      text-align: center;
+    }
+
+    h1{
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      font-weight: 650;
+      letter-spacing: .2px;
     }
 
     .card{
       background: var(--card);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
-      padding: 22px;
-    }
-
-    header{
-      display:flex;
-      gap:16px;
-      align-items:center;
-      margin-bottom: 14px;
-    }
-
-    .avatar{
-      width:64px;height:64px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #60a5fa, #a78bfa);
-      display:grid; place-items:center;
-      font-weight: 700;
-      letter-spacing:.5px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-      flex: 0 0 auto;
-    }
-
-    h1{
-      font-size: 1.25rem;
-      margin:0;
-      line-height:1.2;
-    }
-
-    .bio{
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size:.98rem;
-      line-height:1.35;
+      padding: 16px;
+      backdrop-filter: blur(10px);
     }
 
     .links{
       display:flex;
       flex-direction:column;
-      gap: 12px;
-      margin-top: 16px;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     a.btn{
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      padding: 14px 16px;
+      justify-content:center;
+      gap: 10px;
+      padding: 14px 14px;
       border-radius: 14px;
       text-decoration:none;
       color: var(--text);
       background: var(--btn);
-      border: 1px solid rgba(255,255,255,.14);
-      transition: transform .08s ease, background .18s ease, border-color .18s ease;
+      border: 1px solid var(--border);
+      transition: background .18s ease, transform .08s ease, border-color .18s ease;
       outline: none;
+      user-select: none;
     }
 
     a.btn:hover{
       background: var(--btnHover);
-      border-color: rgba(255,255,255,.22);
       transform: translateY(-1px);
+      border-color: rgba(255,255,255,.16);
     }
 
-    a.btn:focus{
-      box-shadow: 0 0 0 4px var(--ring);
+    a.btn:focus-visible{
+      box-shadow: 0 0 0 4px var(--focus);
     }
 
-    .left{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width:0;
+    .icon{
+      width: 26px;
+      display:inline-flex;
+      justify-content:center;
+      opacity: .95;
     }
 
-    .pill{
-      width:34px;height:34px;
-      border-radius: 12px;
-      display:grid;place-items:center;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.10);
-      flex: 0 0 auto;
-    }
-
-    .label{
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .hint{
-      color: var(--muted);
-      font-size: .92rem;
-      margin-left: 44px;
-      margin-top: -6px;
-    }
-
-    footer{
-      margin-top: 14px;
-      text-align:center;
-      color: rgba(234,240,255,.55);
-      font-size: .85rem;
-    }
-
-    /* Optional: make it feel app-like on mobile */
+    /* Slightly larger tap targets on phones */
     @media (max-width: 420px){
-      .card{ padding: 18px; }
-      .avatar{ width:58px;height:58px; }
+      h1{ font-size: 1.25rem; }
+      a.btn{ padding: 15px 14px; }
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="card" aria-label="Link hub">
-      <header>
-        <div class="avatar" aria-hidden="true">YG</div>
-        <div>
-          <h1>Vadim's Links</h1>
-          <p class="bio">One place to find everything</p>
-        </div>
-      </header>
+    <h1>Vadim’s links</h1>
 
-      <nav class="links" aria-label="Links">
-        <!-- Button 1 -->
-        https://www.linkedin.com/in/yourprofile
-          <span class="left">
-            <span class="pill">in</span>
-            <span class="label">LinkedIn</span>
-          </span>
-          <span aria-hidden="true">↗</span>
-        </a>
+    <section class="card" aria-label="Quick links">
+      <ul class="links">
+        <li>
+          <a class="btn" href="https://criterionindustries-my.sharepoint.com/:x:/g/personal/vadim_gussak_criterionindustries_com_au/IQCk_bSLv5D6SYkwtrqCkA8CAUPxOwR1pQyqEYGjMK8A34Y?e=az5jpn" target="_blank" rel="noopener noreferrer">
+            <span class="icon">🧮</span>
+            <span>Project Value Estimator</span>
+          </a>
+        </li>
 
-        <!-- Button 2 -->
-        https://calendly.com/yourname/15min
-          <span class="left">
-            <span class="pill">📅</span>
-            <span class="label">Book a call</span>
-          </span>
-          <span aria-hidden="true">↗</span>
-        </a>
+        <li>
+          <a class="btn" href="https://criterionindustries-my.sharepoint.com/:x:/g/personal/vadim_gussak_criterionindustries_com_au/IQDe5IerY4Y3TZNu4r_KgIj8AXT1oLDWHidbOmKuTSFwCoY?e=sKvgfp" target="_blank" rel="noopener noreferrer">
+            <span class="icon">📊</span>
+            <span>MSI &amp; Lead Calculator</span>
+          </a>
+        </li>
 
-        <!-- Button 3 -->
-        mailto:you@email.com
-          <span class="left">
-            <span class="pill">✉️</span>
-            <span class="label">Email me</span>
-          </span>
-          <span aria-hidden="true">→</span>
-        </a>
+        <li>
+          <a class="btn" href="https://criterionindustries-my.sharepoint.com/:x:/g/personal/vadim_gussak_criterionindustries_com_au/IQB1yo60liJXSpLPDpQIkSWYAfuz02hdlgTeJ1kaTW0zy1s?e=dnoIZN" target="_blank" rel="noopener noreferrer">
+            <span class="icon">🗂️</span>
+            <span>Pipeline Overview</span>
+          </a>
+        </li>
 
-        <!-- Button 4 -->
-        https://yourwebsite.com
-          <span class="left">
-            <span class="pill">🌐</span>
-            <span class="label">Website</span>
-          </span>
-          <span aria-hidden="true">↗</span>
-        </a>
-
-        <!-- Add more buttons by copying one block above -->
-      </nav>
-
-      <footer>
-        <div>© <span id="y"></span> Your Name</div>
-      </footer>
+        <li>
+          <a class="btn" href="mailto:vadim.gussak@criterionindustries.com.au">
+            <span class="icon">✉️</span>
+            <span>Email me</span>
+          </a>
+        </li>
+      </ul>
     </section>
   </main>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
